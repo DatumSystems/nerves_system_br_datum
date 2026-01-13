@@ -1,0 +1,24 @@
+From 9d57f401325a9c91eb7006c9d96e3eab49250d81 Mon Sep 17 00:00:00 2001
+From: Mark Carlin <mcarlin@datumsystems.com>
+Date: Tue, 13 Jan 2026 11:47:35 -0700
+Subject: [PATCH] Use Erlang lcnt build
+
+---
+ package/erlang/erlang.mk | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/package/erlang/erlang.mk b/package/erlang/erlang.mk
+index a271bdb1..2d5d4a65 100644
+--- a/package/erlang/erlang.mk
++++ b/package/erlang/erlang.mk
+@@ -90,6 +90,7 @@ ERLANG_CONF_ENV += erl_xcomp_sysroot=$(STAGING_DIR)
+ ERLANG_CONF_ENV += erl_xcomp_clock_gettime_cpu_time=yes
+ 
+ ERLANG_CONF_OPTS = --without-javac
++ERLANG_CONF_OPTS += --enable-lock-counter
+ 
+ ifeq ($(BR2_REPRODUCIBLE),y)
+ ERLANG_CONF_OPTS += --enable-deterministic-build
+-- 
+2.34.1
+
